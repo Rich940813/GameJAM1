@@ -20,7 +20,7 @@ public class PlayerFootsteps : MonoBehaviour
             {
                 int randomSound = Random.Range(0, 3);
                 AudioManager.instance.PlaySFX(footstepsSFX[randomSound], 1, 0.95f, 1.02f);
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.5f);
             }
             else
             {
