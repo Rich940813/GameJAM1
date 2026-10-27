@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour
 {
-    public AudioClip[] footstepsSFX;
-    private PlayerController playerMovement;
+    public AudioClip[] footstepsSFX; // Array de sonidos
+    public float stepsFrequency  =  0.5f; // Determina la velocidad de los pasos
+    private PlayerController playerMovement; // Hace referencia al movimiento dentro del controlador
     void Start()
     {
         playerMovement = GetComponent<PlayerController>();
@@ -20,7 +21,7 @@ public class PlayerFootsteps : MonoBehaviour
             {
                 int randomSound = Random.Range(0, 3);
                 AudioManager.instance.PlaySFX(footstepsSFX[randomSound], 1, 0.95f, 1.02f);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(stepsFrequency);
             }
             else
             {
