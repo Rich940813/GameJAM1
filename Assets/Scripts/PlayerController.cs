@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     public GameObject mundo; // Referencia al mundo para obtener sus dimensiones por su collider
     private Rigidbody rigidbody; // Variable para orbtener RigidBody
     private InputSystem_Actions inputActions; //nuevo sistema de inputs
-    private Vector2 movimiento; //detector movimiento horizontal
+    public Vector2 movimiento; //detector movimiento horizontal
 
     public float speed;
   
