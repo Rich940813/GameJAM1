@@ -7,13 +7,26 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions inputActions; //nuevo sistema de inputs
     private Vector2 movimiento; //detector movimiento horizontal
 
+    private Collider collider;
+
     public float speed;
+
+    private float minX;
+    private float maxX;
   
+    private float minZ;
+    private float maxZ;
     
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();   //Obteniendo el RigidBody
         inputActions = new InputSystem_Actions(); //Iniciando el inputsystem
+        collider = mundo.GetComponent<Collider>(); //Obtenemos el collider del mundo
+        //Obtenemos las dimensiones del mundo
+        minX = collider.bounds.min.x;
+        maxX = collider.bounds.max.x;
+        minZ = collider.bounds.min.z;
+        maxZ = collider.bounds.max.z;
     }
 
     void OnEnable()
@@ -31,6 +44,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movimiento = inputActions.Player.Move.ReadValue<Vector2>(); //Leyendo los valores del teclado de direccion
+        TotalReposition();// Reposiciona en el límite de cada borde
     }
 
     void FixedUpdate()
@@ -38,9 +52,41 @@ public class PlayerController : MonoBehaviour
         MuevePlayer(); //llamando a la funcion para que se mueva el player
     }
 
-    public void MuevePlayer()
+    public void MuevePlayer() //Mueve al jugador por el mundo
     {
+        
         Vector3 movimientoTotal = new Vector3(movimiento.x,0f,movimiento.y);// Creando Vector 3 para sumarlo al vector de posicion y mover el player
         rigidbody.MovePosition(transform.position + movimientoTotal.normalized*speed*Time.fixedDeltaTime);
+       
+    }
+
+    private void RepositioX(float x)//REposiciona en x
+    {
+        transform.position = new Vector3(x,transform.position.y,transform.position.z);
+    }
+
+    private void RepositioZ(float z)//REposiciona en Z
+    {
+        transform.position = new Vector3(transform.position.x,transform.position.y,z);
+    }
+
+    private void TotalReposition()//Función condicional para reposicionar
+    {
+         if( transform.position.x<minX)
+        {
+            RepositioX(minX);
+        }  
+        if (transform.position.x > maxX)
+        {
+             RepositioX(maxX);
+        }
+         if( transform.position.z<minZ)
+        {
+            RepositioZ(minZ);
+        }  
+        if (transform.position.z > maxZ)
+        {
+             RepositioZ(maxZ);
+        }
     }
 }
