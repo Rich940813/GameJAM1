@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &173815391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173815393}
+  - component: {fileID: 173815392}
+  m_Layer: 0
+  m_Name: tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &173815392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173815391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0027dbaff2aebe41a4294f5905660c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayJingle
+  jingle: 1
+--- !u!4 &173815393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173815391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.47, y: 2.5, z: -0.42519}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +614,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   audioSource: {fileID: 1902849814}
   musicSource: {fileID: 1902849816}
-  eventsSource: {fileID: 0}
+  eventsSource: {fileID: 1902849815}
   musicClip: {fileID: 8300000, guid: 9c11a6791b71fea4bb10481e9e1a6e9b, type: 3}
+  jingles:
+  - {fileID: 8300000, guid: 1b67a684f68fad34da128b0c43668cec, type: 3}
+  - {fileID: 8300000, guid: 9ac2358e43454624fba207e79d5493cc, type: 3}
+  - {fileID: 8300000, guid: 090f074100b525d4e81118752b24cd4d, type: 3}
   music: 1
 --- !u!4 &1902849813
 Transform:
@@ -1071,3 +1120,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1012519507}
   - {fileID: 2144402726}
+  - {fileID: 173815393}
