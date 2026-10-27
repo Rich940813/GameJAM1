@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject mundo; // Referencia al mundo para obtener sus dimensiones por su collider
+    //public GameObject mundo; // Referencia al mundo para obtener sus dimensiones por su collider
     private Rigidbody rigidbody; // Variable para orbtener RigidBody
     private InputSystem_Actions inputActions; //nuevo sistema de inputs
     private Vector2 movimiento; //detector movimiento horizontal
@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();   //Obteniendo el RigidBody
         inputActions = new InputSystem_Actions(); //Iniciando el inputsystem
-        collider = mundo.GetComponent<Collider>(); //Obtenemos el collider del mundo
+        //collider = mundo.GetComponent<Collider>(); //Obtenemos el collider del mundo
         //Obtenemos las dimensiones del mundo
-        minX = collider.bounds.min.x;
+        /*minX = collider.bounds.min.x;
         maxX = collider.bounds.max.x;
         minZ = collider.bounds.min.z;
-        maxZ = collider.bounds.max.z;
+        maxZ = collider.bounds.max.z;*/
         
     }
 
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movimiento = inputActions.Player.Move.ReadValue<Vector2>(); //Leyendo los valores del teclado de direccion
-        TotalReposition();// Reposiciona en el límite de cada borde
+        //TotalReposition();// Reposiciona en el límite de cada borde
     }
 
     void FixedUpdate()
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         rigidbody.MovePosition(transform.position + movimientoTotal.normalized*speed*Time.fixedDeltaTime);
        
     }
-
+/*
     private void RepositioX(float x)//REposiciona en x
     {
         transform.position = new Vector3(x,transform.position.y,transform.position.z);
@@ -107,5 +107,5 @@ public class PlayerController : MonoBehaviour
         {
              RepositioZ(maxZ);
         }
-    }
+    }*/
 }
