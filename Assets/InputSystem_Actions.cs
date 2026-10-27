@@ -114,7 +114,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -123,7 +127,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
@@ -132,7 +140,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""27c5f898-bc57-4ee1-8800-db469aca5fe3"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -141,7 +153,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""f1ba0d36-48eb-4cd5-b651-1c94a6531f70"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -159,7 +175,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Next"",
                     ""type"": ""Button"",
                     ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -168,7 +188,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
+<<<<<<< HEAD
                     ""expectedControlType"": ""Button"",
+=======
+                    ""expectedControlType"": """",
+>>>>>>> 795d99b84862eb9bbde9424f8577b47456b51396
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
