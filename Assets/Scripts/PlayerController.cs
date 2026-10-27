@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     
     void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();   
-        inputActions = new InputSystem_Actions();
+        rigidbody = GetComponent<Rigidbody>();   //Obteniendo el RigidBody
+        inputActions = new InputSystem_Actions(); //Iniciando el inputsystem
     }
 
     void OnEnable()
     {
-        inputActions.Player.Enable();
+        inputActions.Player.Enable(); // Activando en on enable
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,17 +30,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movimiento = inputActions.Player.Move.ReadValue<Vector2>();
+        movimiento = inputActions.Player.Move.ReadValue<Vector2>(); //Leyendo los valores del teclado de direccion
     }
 
     void FixedUpdate()
     {
-        MuevePlayer();
+        MuevePlayer(); //llamando a la funcion para que se mueva el player
     }
 
     public void MuevePlayer()
     {
-        Vector3 movimientoTotal = new Vector3(movimiento.x,0f,movimiento.y);
+        Vector3 movimientoTotal = new Vector3(movimiento.x,0f,movimiento.y);// Creando Vector 3 para sumarlo al vector de posicion y mover el player
         rigidbody.MovePosition(transform.position + movimientoTotal.normalized*speed*Time.fixedDeltaTime);
     }
 }
