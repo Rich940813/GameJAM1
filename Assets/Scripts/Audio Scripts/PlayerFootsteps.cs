@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour
 {
-    public AudioClip footstepsSFX;
+    public AudioClip[] footstepsSFX;
     private PlayerController playerMovement;
     void Start()
     {
@@ -18,7 +18,13 @@ public class PlayerFootsteps : MonoBehaviour
         {
             if (playerMovement.movimiento.magnitude > 0.1f)
             {
-                AudioManager.instance.PlaySFX(footstepsSFX);
+                int randomSound = Random.Range(0, 3);
+                AudioManager.instance.PlaySFX(footstepsSFX[randomSound], 1, 0.95f, 1.02f);
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                yield return null;
             }
         }
     }
