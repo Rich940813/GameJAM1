@@ -1261,7 +1261,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f478346518d90984d87e520632157aea, type: 3}
   - {fileID: 8300000, guid: 6f2e96dd0474ea7478cb471734d5060a, type: 3}
   - {fileID: 8300000, guid: e4ef59b63c268884895344b958da90cc, type: 3}
-  stepsFrequency: 0.5
+  stepsFrequency: 0.35
 --- !u!81 &1393899896
 AudioListener:
   m_ObjectHideFlags: 0
