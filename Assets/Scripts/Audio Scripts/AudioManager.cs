@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource eventsSource;
 
     public AudioClip musicClip;
+    public AudioClip[] jingles;
+
 
     public bool music = true;
 
@@ -25,14 +27,22 @@ public class AudioManager : MonoBehaviour
         audioSource.pitch = Random.Range(randomMin, randomMax); // randomiza el pitch
         audioSource.PlayOneShot(audioClip, volume); // Reproduce un audio una sola vez en su totalidad.
     }
+    public void PlayJingle(AudioClip jingles, float volume = 1f, int randomIndex = 0)
+    {
+        eventsSource.PlayOneShot(jingles, volume); // Reproduce un audio una sola vez en su totalidad.
+    }
 
     private void Start()
     {
-        if (music == true)
+        PlayMusic(musicClip);
+    }
+    private void Update()
+    {
+        if (music && !musicSource.isPlaying)
         {
             PlayMusic(musicClip);
         }
-        if (music == false)
+        else if (!music && musicSource.isPlaying)
         {
             StopMusic();
         } 
