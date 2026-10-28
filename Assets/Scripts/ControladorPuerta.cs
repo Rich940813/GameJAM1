@@ -11,7 +11,6 @@ public class ControladorPuerta : MonoBehaviour
     void Awake()
     {
         controladorPuerta = false;
-        
     }
 
     // Update is called once per frame
