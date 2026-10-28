@@ -34,6 +34,7 @@ public class MapManager : MonoBehaviour
     public Transform jugador;
     public Transform contenedorMapa;     // objeto vacío "Mapa" en (0,0,0)
     public float margenAparicion = 2.5f; // distancia a la puerta al reaparecer
+    public RoomCamera camara;            // opcional: para que la cámara salte (sin deslizarse) al volver al inicio
 
     public UnityEvent alGanar;
 
@@ -59,6 +60,13 @@ public class MapManager : MonoBehaviour
         if (!DatosValidos()) return;
 
         if (semilla != 0) Random.InitState(semilla);
+
+        // Habitaciones puestas a mano en la escena: sus puertas no pertenecen al camino y estorban.
+        foreach (Room r in FindObjectsByType<Room>(FindObjectsSortMode.None))
+        {
+            if (!r.transform.IsChildOf(contenedorMapa))
+                Debug.LogWarning("MapManager: hay una habitación suelta en la escena (" + r.name + "). Bórrala del Hierarchy.", r);
+        }
 
         LimpiarMapa();
         terminado = false;
@@ -202,7 +210,8 @@ public class MapManager : MonoBehaviour
     // Lo llama cada RoomDoor cuando el jugador cruza una puerta.
     public void PuertaCruzada(Room room, Dir puerta)
     {
-        if (terminado || room == null) return;
+        if (terminado || room == null || habitaciones.Count == 0) return;
+        if (!habitaciones.Contains(room)) return; // habitación que no es del camino: se ignora
 
         if (puerta == room.dirSiguiente) return;                          // puerta correcta
         if (puerta == room.dirAnterior && !volverAtrasEsError) return;    // volver a la habitación anterior
@@ -236,11 +245,16 @@ public class MapManager : MonoBehaviour
         }
         jugador.position = destino;
         Physics.SyncTransforms();
+
+        if (camara != null) camara.Snap();
     }
 
     bool DatosValidos()
     {
         if (jugador == null) { Debug.LogError("MapManager: falta asignar el Jugador."); return false; }
+        if (!jugador.gameObject.scene.IsValid()) { Debug.LogError("MapManager: el Jugador es un prefab del Project. Arrastra el del Hierarchy (el que está en la escena)."); return false; }
+        if (!contenedorMapa.gameObject.scene.IsValid()) { Debug.LogError("MapManager: Contenedor Mapa es un prefab del Project. Arrastra el objeto 'Mapa' del Hierarchy."); return false; }
+        if (jugador.IsChildOf(contenedorMapa)) { Debug.LogError("MapManager: el Jugador es hijo de Contenedor Mapa y se destruiría al generar. Sácalo a la raíz del Hierarchy."); return false; }
         if (prefabInicio == null || prefabMeta == null) { Debug.LogError("MapManager: faltan los prefabs de Inicio o Meta."); return false; }
         if (prefabsIntermedios == null || prefabsIntermedios.Length == 0) { Debug.LogError("MapManager: falta al menos un prefab intermedio."); return false; }
         return true;
