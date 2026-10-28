@@ -581,6 +581,50 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 426178489}
   m_SourcePrefab: {fileID: 100100000, guid: a100f4dcb221a354282e648109e04c55, type: 3}
+--- !u!1 &245667115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245667117}
+  - component: {fileID: 245667116}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &245667116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245667115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08efbbc14ba6b4e4a9a4bc04cd7d3094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &245667117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245667115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.40085, y: 1.11211, z: 4.7855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277514110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6687637690485659149, guid: a100f4dcb221a354282e648109e04c55, type: 3}
@@ -635,7 +679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &354164583
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1961,6 +2005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0ead11eb72fb64c88128a83127f999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioFromPlayer
+  footstepsSFX: []
+  stepsFrequency: 0.5
 --- !u!81 &1393899896
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3048,6 +3094,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb9b093cd538384aada5eb8d65ac277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  audioSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  eventsSource: {fileID: 0}
+  musicClip: {fileID: 0}
+  jingles: []
+  music: 1
 --- !u!1 &2084037213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5278732366990750409, guid: a100f4dcb221a354282e648109e04c55, type: 3}
@@ -3487,3 +3539,4 @@ SceneRoots:
   - {fileID: 44482648}
   - {fileID: 3703931568076721358}
   - {fileID: 206377197}
+  - {fileID: 245667117}
