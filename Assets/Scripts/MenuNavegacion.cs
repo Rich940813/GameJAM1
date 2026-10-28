@@ -6,7 +6,7 @@ public class MenuNavegacion : MonoBehaviour
 {
     public void Jugar()
     {
-        SceneManager.LoadScene("NivelPrincipal");
+        SceneManager.LoadScene("Main");
     }
 
     public void VerCreditos()

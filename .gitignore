@@ -108,5 +108,9 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 
+<<<<<<< HEAD
 # UnityStore Third Party Assets
 /Assets/Thrid Party Assets/
+=======
+Assets/_Recovery/
+>>>>>>> UI/UX
