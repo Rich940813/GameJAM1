@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public int openGate = 0;
-    public ControladorPuerta CorrectDoor;
+    public ControladorPuerta correctDoor;
     void Start()
     {
     }
@@ -13,7 +12,7 @@ public class OpenDoor : MonoBehaviour
         if (other.CompareTag("Correct"))
         {
             Debug.Log("activado");
-            CorrectDoor.OpenDoor();
+            correctDoor.DetectActivation();
         }
     }
 }

@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
                 anguloObjetivo = 180;
             }
            
-            Debug.Log (anguloObjetivo);
+            //Debug.Log (anguloObjetivo);
             rigidbody.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
             
         }

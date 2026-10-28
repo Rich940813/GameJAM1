@@ -3,36 +3,49 @@ using UnityEngine;
 
 public class ControladorPuerta : MonoBehaviour
 {
-    private bool controladorPuerta;
-    public float speed;
+    public int activation = 0;
+    public int requiredActivation;
+    public float speed = 10;
     private GameObject puertas;
+    private bool isOpening;
     //public GameObject player; Objeto para realizar la colison 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        controladorPuerta = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controladorPuerta)
+        OpenDoor();
+        /*if (controladorPuerta)
         {
             OpenDoor();
             CloseDoor();
-        }
+        }*/
     }
 
     public void OpenDoor()
     {
-        transform.Translate(Vector3.right*speed*Time.deltaTime);
+        if (activation == requiredActivation)
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            StartCoroutine(MoveDoor());
+        }
     }
 
+    IEnumerator MoveDoor()
+    {
+        yield return new WaitForSeconds(2.0f);
+        activation = 3;
+    }
+    /*
     public void CloseDoor()
     {
         StartCoroutine(CerrarPuerta());
     }
 
+    
     IEnumerator CerrarPuerta()
     {
         yield return new WaitForSeconds(3f);
@@ -42,5 +55,11 @@ public class ControladorPuerta : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         controladorPuerta = true;
+    }
+    */
+
+    public void DetectActivation()
+    {
+        activation++;
     }
 }
