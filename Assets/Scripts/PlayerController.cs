@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     private float maxZ;
 
     private float myScala; // Para cambiar la orientacion de jugador
-    
+    public Animator animator; // Referencia al componente Animator de Don
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();   //Obteniendo el RigidBody
@@ -29,14 +30,20 @@ public class PlayerController : MonoBehaviour
         maxX = collider.bounds.max.x;
         minZ = collider.bounds.min.z;
         maxZ = collider.bounds.max.z;*/
-        
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
     }
 
     void OnEnable()
     {
         inputActions.Player.Enable(); // Activando en on enable
     }
-
+    void OnDisable()
+    {
+        inputActions.Player.Disable(); // Desactivando en on disable
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if(movimiento.x !=0)
         {
             float anguloObjetivo = 90*movimiento.x;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
+            rigidbody.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
         }
         if(movimiento.y != 0)
         {
@@ -70,13 +77,21 @@ public class PlayerController : MonoBehaviour
                 anguloObjetivo = 180;
             }
            
-            Debug.Log (anguloObjetivo);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
+            //Debug.Log (anguloObjetivo);
+            rigidbody.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
             
         }
         Vector3 movimientoTotal = new Vector3(movimiento.x,0f,movimiento.y);// Creando Vector 3 para sumarlo al vector de posicion y mover el player
         rigidbody.MovePosition(transform.position + movimientoTotal.normalized*speed*Time.fixedDeltaTime);
-       
+        // ===== ENVÍO DE DATOS AL ANIMATOR =====
+        // Si hay movimiento, la magnitud será 1 (o mayor si se presiona a tope), si no, será 0.
+        float velocidadActual = movimientoTotal.magnitude > 0 ? 1f : 0f;
+
+        if (animator != null)
+        {
+            velocidadActual = movimiento.magnitude > 0.01f ? movimiento.magnitude : 0f;
+            animator.SetFloat("Speed_f", velocidadActual);
+        }
     }
 /*
     private void RepositioX(float x)//REposiciona en x
