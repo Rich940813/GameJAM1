@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1185248376933268278}
   m_Layer: 0
   m_Name: Objeto Incorrecto
-  m_TagString: Incorrect
+  m_TagString: Wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
