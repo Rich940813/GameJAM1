@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this; // inicializar variable static
-        audioSource = GetComponent<AudioSource>(); // Vincular componente audio source a variable
     }
 
     // Funcion que reproduce el sonido asignado, a cierto volumen, que puede randomizar el pitch, y puede reproducir un clip random de un array.
@@ -27,9 +26,9 @@ public class AudioManager : MonoBehaviour
         audioSource.pitch = Random.Range(randomMin, randomMax); // randomiza el pitch
         audioSource.PlayOneShot(audioClip, volume); // Reproduce un audio una sola vez en su totalidad.
     }
-    public void PlayJingle(AudioClip jingles, float volume = 1f, int randomIndex = 0)
+    public void PlayJingle(int index, float volume = 1f, int randomIndex = 0)
     {
-        eventsSource.PlayOneShot(jingles, volume); // Reproduce un audio una sola vez en su totalidad.
+        eventsSource.PlayOneShot(jingles[index], volume); // Reproduce un audio una sola vez en su totalidad.
     }
 
     private void Start()

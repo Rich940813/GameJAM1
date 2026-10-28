@@ -3,6 +3,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public ControladorPuerta correctDoor;
+    public ControladorPuerta wrongDoor;
     void Start()
     {
     }
@@ -11,8 +12,14 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.CompareTag("Correct"))
         {
-            Debug.Log("activado");
+            Debug.Log("Correcto");
             correctDoor.DetectActivation();
         }
+        if (other.CompareTag("Wrong"))
+        {
+            Debug.Log("Incorrecto");
+            wrongDoor.WrongActivation();
+        }
     }
+
 }

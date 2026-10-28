@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Puertas
   - Correct
+  - Wrong
   layers:
   - Default
   - TransparentFX
