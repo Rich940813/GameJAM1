@@ -20,7 +20,7 @@ public class PlayerFootsteps : MonoBehaviour
             if (playerMovement.movimiento.magnitude > 0.1f)
             {
                 int randomSound = Random.Range(0, 3);
-                AudioManager.instance.PlaySFX(footstepsSFX[randomSound], 1, 0.95f, 1.02f);
+                AudioManager.instance.PlaySFX(footstepsSFX[randomSound], 0.5f, 0.95f, 1.02f);
                 yield return new WaitForSeconds(stepsFrequency);
             }
             else

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3320353181565002566}
   m_Layer: 0
   m_Name: ElementoMovil
-  m_TagString: Untagged
+  m_TagString: Incorrect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
