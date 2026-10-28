@@ -5,12 +5,13 @@ public class ControladorPuerta : MonoBehaviour
 {
     public int activation = 0;
     public int requiredActivation;
-    private int wasActivated = 0;
+    private int stopDoor = 0;
     public float speed = 1;
     private GameObject puertas;
     private bool isOpening = false;
     private bool wrongActivation = false;
     public bool doorYesOrNo = true;
+    private bool doorChosen;
     //public GameObject player; Objeto para realizar la colison 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -25,7 +26,9 @@ public class ControladorPuerta : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (activation == requiredActivation && doorYesOrNo || wrongActivation == true && !doorYesOrNo && wasActivated < 1)
+        if (!doorChosen)
+        {
+            if (activation == requiredActivation && doorYesOrNo && wrongActivation == false)
         {
             transform.Translate(Vector3.up * speed * Time.deltaTime);
             if (!isOpening)
@@ -33,7 +36,18 @@ public class ControladorPuerta : MonoBehaviour
                 isOpening = true;
                 StartCoroutine(MoveDoor());
             }
-            
+        }
+        else if (wrongActivation == true && !doorYesOrNo && stopDoor < 1)
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            if (!isOpening)
+            {
+                isOpening = true;
+                StartCoroutine(MoveDoor());
+            }
+        }
+        
+
         }
     }
 
@@ -41,9 +55,16 @@ public class ControladorPuerta : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         activation = 3;
-        wasActivated++;
-            // 0 = wrong, 1 = small success, 2 = big success
+        stopDoor++;
+        // 0 = wrong, 1 = small success, 2 = big success
+        if (wrongActivation == true)
+        {
+            AudioManager.instance.PlayJingle(0);
+        }
+        else
+        {
             AudioManager.instance.PlayJingle(2);
+        }
     }
 
     /*

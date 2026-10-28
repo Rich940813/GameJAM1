@@ -8,12 +8,15 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource musicSource;
     public AudioSource eventsSource;
+    public AudioSource ambientSource;
 
     public AudioClip musicClip;
+    public AudioClip ambientTrack;
     public AudioClip[] jingles;
 
 
     public bool music = true;
+    public bool ambient = true;
 
     private void Awake()
     {
@@ -34,6 +37,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic(musicClip);
+        PlayAmbientTrack(ambientTrack);
     }
     private void Update()
     {
@@ -44,7 +48,16 @@ public class AudioManager : MonoBehaviour
         else if (!music && musicSource.isPlaying)
         {
             StopMusic();
-        } 
+        }
+
+        if (ambient && !ambientSource.isPlaying)
+        {
+            PlayAmbientTrack(ambientTrack);
+        }
+        else if (!ambient && ambientSource.isPlaying)
+        {
+            StopAmbientTrack();
+        }
     }
     public void PlayMusic(AudioClip musicClip)
     {
@@ -52,6 +65,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = musicClip;
             musicSource.loop = true;
+            musicSource.volume = 0.2f;
             musicSource.Play();
         }
     }
@@ -59,5 +73,20 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+    public void PlayAmbientTrack(AudioClip ambientTrack)
+    {
+
+        {
+            ambientSource.clip = ambientTrack;
+            ambientSource.loop = true;
+            ambientSource.volume = 2f;
+            ambientSource.Play();
+        }
+    }
+
+    public void StopAmbientTrack()
+    {
+        ambientSource.Stop();
     }
 }

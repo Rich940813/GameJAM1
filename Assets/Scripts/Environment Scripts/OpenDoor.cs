@@ -13,6 +13,7 @@ public class OpenDoor : MonoBehaviour
         if (other.CompareTag("Correct"))
         {
             Debug.Log("Correcto");
+            AudioManager.instance.PlayJingle(1);
             correctDoor.DetectActivation();
         }
         if (other.CompareTag("Wrong"))
