@@ -147,6 +147,7 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+<<<<<<< HEAD
 AssetOrigin:
   serializedVersion: 1
   productId: 144637
@@ -154,3 +155,5 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/Handpainted_Forest_pack/Models/Source/Forest_pack_models_set.FBX
   uploadId: 306751
+=======
+>>>>>>> DevelopTestTest
