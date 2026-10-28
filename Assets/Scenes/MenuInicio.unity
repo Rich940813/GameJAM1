@@ -445,7 +445,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315136619}
   m_Enabled: 1
-  serializedVersion: 13
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 0.9278543, b: 0.8301887, a: 1}
   m_Intensity: 1
@@ -497,7 +497,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShapeRadius: 0
+  m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656bu
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656bu
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656bu
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656bu
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1649,7 +1649,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1097173627
 SpriteRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1706,7 +1706,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
-  m_BlendShapeWeights: []
 --- !u!4 &1097173628
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1715,7 @@ Transform:
   m_GameObject: {fileID: 1097173626}
   serializedVersion: 2
   m_LocalRotation: {x: -0.06315922, y: -0.36071393, z: 0.16049051, w: 0.9165911}
-  m_LocalPosition: {x: 502.87, y: 8.11, z: 505.75}
+  m_LocalPosition: {x: 501.78, y: 8.49, z: 504.4}
   m_LocalScale: {x: 0.6705, y: 0.8343, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2285,15 +2284,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6930213713da1424895ed800baa16a17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 501.76
+      value: 502.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6930213713da1424895ed800baa16a17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.06
+      value: 10.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6930213713da1424895ed800baa16a17, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 506.12
+      value: 505.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6930213713da1424895ed800baa16a17, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3185,7 +3184,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
