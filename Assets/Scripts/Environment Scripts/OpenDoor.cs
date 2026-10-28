@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public int openGate = 0;
-    public ControladorPuerta CorrectDoor;
+    public ControladorPuerta correctDoor;
+    public ControladorPuerta wrongDoor;
     void Start()
     {
     }
@@ -12,8 +12,15 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.CompareTag("Correct"))
         {
-            Debug.Log("activado");
-            CorrectDoor.OpenDoor();
+            Debug.Log("Correcto");
+            AudioManager.instance.PlayJingle(1);
+            correctDoor.DetectActivation();
+        }
+        if (other.CompareTag("Wrong"))
+        {
+            Debug.Log("Incorrecto");
+            wrongDoor.WrongActivation();
         }
     }
+
 }

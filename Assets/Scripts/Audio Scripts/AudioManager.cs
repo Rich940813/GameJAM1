@@ -8,17 +8,19 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource musicSource;
     public AudioSource eventsSource;
+    public AudioSource ambientSource;
 
     public AudioClip musicClip;
+    public AudioClip ambientTrack;
     public AudioClip[] jingles;
 
 
     public bool music = true;
+    public bool ambient = true;
 
     private void Awake()
     {
         instance = this; // inicializar variable static
-        audioSource = GetComponent<AudioSource>(); // Vincular componente audio source a variable
     }
 
     // Funcion que reproduce el sonido asignado, a cierto volumen, que puede randomizar el pitch, y puede reproducir un clip random de un array.
@@ -27,14 +29,15 @@ public class AudioManager : MonoBehaviour
         audioSource.pitch = Random.Range(randomMin, randomMax); // randomiza el pitch
         audioSource.PlayOneShot(audioClip, volume); // Reproduce un audio una sola vez en su totalidad.
     }
-    public void PlayJingle(AudioClip jingles, float volume = 1f, int randomIndex = 0)
+    public void PlayJingle(int index, float volume = 1f, int randomIndex = 0)
     {
-        eventsSource.PlayOneShot(jingles, volume); // Reproduce un audio una sola vez en su totalidad.
+        eventsSource.PlayOneShot(jingles[index], volume); // Reproduce un audio una sola vez en su totalidad.
     }
 
     private void Start()
     {
         PlayMusic(musicClip);
+        PlayAmbientTrack(ambientTrack);
     }
     private void Update()
     {
@@ -45,7 +48,16 @@ public class AudioManager : MonoBehaviour
         else if (!music && musicSource.isPlaying)
         {
             StopMusic();
-        } 
+        }
+
+        if (ambient && !ambientSource.isPlaying)
+        {
+            PlayAmbientTrack(ambientTrack);
+        }
+        else if (!ambient && ambientSource.isPlaying)
+        {
+            StopAmbientTrack();
+        }
     }
     public void PlayMusic(AudioClip musicClip)
     {
@@ -53,6 +65,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = musicClip;
             musicSource.loop = true;
+            musicSource.volume = 0.2f;
             musicSource.Play();
         }
     }
@@ -60,5 +73,20 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+    public void PlayAmbientTrack(AudioClip ambientTrack)
+    {
+
+        {
+            ambientSource.clip = ambientTrack;
+            ambientSource.loop = true;
+            ambientSource.volume = 2f;
+            ambientSource.Play();
+        }
+    }
+
+    public void StopAmbientTrack()
+    {
+        ambientSource.Stop();
     }
 }
