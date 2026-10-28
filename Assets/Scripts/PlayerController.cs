@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if(movimiento.x !=0)
         {
             float anguloObjetivo = 90*movimiento.x;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
+            rigidbody.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
         }
         if(movimiento.y != 0)
         {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             }
            
             Debug.Log (anguloObjetivo);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
+            rigidbody.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0f, anguloObjetivo, 0f),100);
             
         }
         Vector3 movimientoTotal = new Vector3(movimiento.x,0f,movimiento.y);// Creando Vector 3 para sumarlo al vector de posicion y mover el player
